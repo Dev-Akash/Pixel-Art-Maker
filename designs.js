@@ -13,6 +13,8 @@ const displayHeight = document.getElementById('gridHeightDisplay');
 const displayWidth = document.getElementById('gridWidthDisplay');
 const userHeight = document.getElementById('inputHeight');
 const userWidth = document.getElementById('inputWidth');
+const capture = document.getElementById('capture');
+const downloadButton = document.getElementById('download_button');
 
 const grid = document.getElementById('pixelCanvas');
 const gridCanvas = document.getElementById('gridCanvas');
@@ -129,3 +131,19 @@ document.getElementById('mode').addEventListener('click', function(event) {
   
     tileMode.innerHTML = ' ' + gridTileMode;
 }); // end mode change / display
+
+
+downloadButton.addEventListener('click', function(){
+    // console.log(capture.offsetHeight, capture.offsetWidth);
+    if (grid.hasChildNodes()) {
+        domtoimage.toBlob(capture)
+        .then(function (blob) {
+            var url = window.URL.createObjectURL(blob);
+            // window.location.href = url;
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = 'file.png';
+            link.click();
+        });
+    }
+});

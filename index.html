@@ -46,10 +46,14 @@
     </div> <!-- end gridControl -->
     <div id="gridCanvas" class="gridCanvas rotationTime">
         <h2>Design Canvas</h2>
-        <table id="pixelCanvas" class="flyItIn"></table>
+        <div id="capture">
+            <table id="pixelCanvas" class="flyItIn"></table>
+        </div>
         <p id ="legend" class="noLegend"><em>(Click to paint or erase. Left mouse button for multi-tile action)</em></p>
+        <button id="download_button" class="button">Download Pixel Art</button><br><br>
     </div> <!-- end gridCanvas -->
 </div> <!-- end cssGirdcontainer -->
+    <script type="text/javascript" src="dom-to-image.js"></script>
     <script src="designs.js"></script>
 </body>
 </html>
